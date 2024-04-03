@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contract Management System</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <h1>Contract Management System</h1>
+    <p>Please fill out the following form to add a new contract</p>
+    <!-- New contracts -->
+    <section class="add_new_contract" id="new_contract">
+        <form id="form_l" name="contract_form" class="form">
+            <legend>
+                Contract Title:
+                <input type="text" id="contract_title" required />
+            </legend>
+            <legend>
+                Effective Date:
+                <input type="date" id="effective_date" required />
+            </legend>
+            <legend>
+                Parties Involved:
+                <input type="text" id="parties_involved" required>
+
+                </input>
+            </legend>
+            <legend>Contract Type:
+                <select name="contract_type" id="contract_type">
+
+                    <option value="one"> Select from the following</option>
+                    <option value="NDA">Non-Dislosure Agreement(NDA)</option>
+                    <option value="Employment">Employment Contract</option>
+                    <option value="Lease">Lease Agreement</option>
+                    <option value="Sale">Sale Agreement</option>
+                    <option value="Service">Service Agreement</option>
+                    <option value="Partnership">Partnership Agreement</option>
+                    <option value="Loan">Loan Agreement</option>
+                    <option value="Franchise">Franchise Agreement</option>
+                    <option value="Licensing">Licensing Agreement</option>
+                    <option value="Consulting">Consulting Agreement</option>
+                    <option value="Distribution">Distribution Agreement</option>
+                    <option value="Construction">Construction Contract</option>
+                    <option value="Purhase">Purhase Order</option>
+                    <option value="Indemnity">Indemnity Agreement</option>
+                    <option value="Joint">Joint Venture Agreement</option>
+                </select>
+            </legend>
+            <legend>
+                Contract Duration
+                <input type="text" id="contract_duration" required />
+            </legend>
+            <legend>
+                <input type="checkbox" id="checkbox" required />
+                Confidentiality Clause
+            </legend>
+            <legend>
+                Upload a file
+                <input type="file" id="file" required />
+            </legend>
+            <input class="btn" type="submit" id="btn" value="Add Contract" />
+
+        </form>
+        <script>
+            const form = document.getElementById('form_l');
+            function handleForm(event) {
+                event.preventDefault();
+                const title = document.getElementById("contract_title").value;
+                const date = document.getElementById("effective_date").value;
+                const parties = document.getElementById("parties_involved").value;
+                const type = document.getElementById("contract_type").value;
+                const duration = document.getElementById("contract_duration").value;
+                const confClause = document.getElementById("checkbox").checked;
+                const file = document.getElementById("file").value;
+                console.log(title,date,parties,type,duration,confClause,file)
+            
+            } 
+            form.addEventListener('submit', handleForm)
+            function renderContract(){
+                
+            }
+        </script>
+    </section>
+    <!-- Created contracts -->
+    <section class="created_contrats" id="contracts">
+        <h3>Existing Contracts</h3>
+        <ul id="contract_list"></ul>
+    </section>
+
+</body>
+
+</html>
